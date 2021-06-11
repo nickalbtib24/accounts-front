@@ -1,0 +1,39 @@
+h1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
+.w-100 {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    background-color: #ed1c27;
+    color: white;
+    margin-top: 10px;
+}
+
+.content {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.element {
+    margin-top: 100px;
+}
+
+.result {
+    margin-top: 30px;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.row {
+    margin-top: 10px;
+}

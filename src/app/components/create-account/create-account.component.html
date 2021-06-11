@@ -1,0 +1,58 @@
+<div class="element">
+    <h1>Crear Cuenta</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 ">
+                <div class="content">
+                    <form (ngSubmit)="createAccount()" [formGroup]="formData" class="d-flex justify-content-center">
+                        <div class="row">
+                            <mat-form-field class="w-100 pt-3">
+                                <mat-label>Nombre</mat-label>
+                                <input matInput required formControlName="name">
+                                <mat-error *ngIf="formData.controls.name.hasError('pattern')">
+                                    Solo se pueden ingresar carácteres
+                                </mat-error>
+                                <mat-error *ngIf="formData.controls.name.hasError('required') && formData.controls.name.touched">
+                                    Este campo es obligatorio
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-form-field class="w-100 pt-3">
+                                <mat-label>Número de Documento</mat-label>
+                                <input matInput required formControlName="documentNumber">
+                                <mat-error *ngIf="formData.controls.documentNumber.hasError('pattern')">
+                                    El número de documento sólo debe contener números
+                                </mat-error>
+                                <mat-error *ngIf="formData.controls.documentNumber.hasError('required') && formData.controls.documentNumber.touched">
+                                    Este campo es obligatorio
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-form-field class="w-100 pt-3">
+                                <mat-label>Saldo</mat-label>
+                                <input formControlName="balance" matInput required>
+                                <mat-error *ngIf="formData.controls.balance.hasError('pattern')">
+                                    El número de documento sólo debe contener números
+                                </mat-error>
+                                <mat-error *ngIf="formData.controls.balance.hasError('required') && formData.controls.balance.touched">
+                                    Este campo es obligatorio
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div *ngIf="formSuccess" class="alert alert-success" role="alert">
+                            {{formSuccess}}
+                        </div>
+                        <div *ngIf="formError" class="alert alert-danger" role="alert">
+                            {{formError}}
+                        </div>
+                        <div class="row">
+                            <button mat-raised-button type="submit">Crear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

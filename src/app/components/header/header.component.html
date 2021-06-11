@@ -1,0 +1,10 @@
+<header>
+    <h1>Accounts App</h1>
+    <div class = "nav" [ngClass]="{'responsive': showResponsiveMenu}">
+        <a (click)="setSectionToShow(1)" [ngClass]="{'active': sectionToShow == 1}">Crear Cuenta</a>
+        <a (click)="setSectionToShow(2)" [ngClass]="{'active': sectionToShow == 2}">Buscar Cuenta</a>
+        <a href="javascript:void(0);" class="icon" (click)="toggleMenu()">&#9776;</a>
+    </div>
+</header>
+<app-create-account *ngIf="sectionToShow == 1"></app-create-account>
+<app-fetch-account *ngIf="sectionToShow == 2"></app-fetch-account>

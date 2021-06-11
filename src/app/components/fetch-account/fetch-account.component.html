@@ -1,0 +1,56 @@
+<div class="element">
+    <h1>Buscar Cuenta</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 ">
+                <div class="content">
+                    <div class="row">
+                        <form (ngSubmit)="fetchAccount()" [formGroup]="formData">
+                            <div class="row">
+                                <mat-form-field class="w-100 pt-3">
+                                    <mat-label>Número de Documento</mat-label>
+                                    <input matInput required formControlName="documentNumber">
+                                    <mat-error *ngIf="formData.controls.documentNumber.hasError('pattern')">
+                                        El número de documento sólo debe contener números
+                                    </mat-error>
+                                    <mat-error *ngIf="formData.controls.documentNumber.hasError('required') && formData.controls.documentNumber.touched">
+                                        Este campo es obligatorio
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="row">
+                                <button mat-raised-button type="submit">Buscar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div *ngIf="success" class="row">
+                        <div class="result">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 title">Nombre:</div>
+                                    <div class="col-md-6">{{name}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 title">Número de documento:</div>
+                                    <div class="col-md-6">{{document}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 title">Saldo:</div>
+                                    <div class="col-md-6">{{balance}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div *ngIf="formSuccess" class="alert alert-success" role="alert">
+                            {{formSuccess}}
+                        </div>
+                        <div *ngIf="formError" class="alert alert-danger" role="alert">
+                            {{formError}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
